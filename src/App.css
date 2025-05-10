@@ -1,0 +1,9 @@
+.showcase {
+  img {
+    max-width: 100%;
+  }
+}
+
+li span.score {
+  color: hsl(195, 42%, 69%);
+}
