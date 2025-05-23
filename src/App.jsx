@@ -1,21 +1,21 @@
-import "@tensorflow/tfjs-backend-cpu";
-import "@tensorflow/tfjs-backend-webgl";
-import * as cocoSsd from "@tensorflow-models/coco-ssd";
+import '@tensorflow/tfjs-backend-cpu';
+import '@tensorflow/tfjs-backend-webgl';
+import * as cocoSsd from '@tensorflow-models/coco-ssd';
 
-import { useEffect, useRef, useState } from "react";
-import "./App.css";
-import Annotation from "./components/Annotation";
-import Dash from "./components/Dash";
+import { useEffect, useRef, useState } from 'react';
+import './App.css';
+import Annotation from './components/Annotation';
+import Dash from './components/Dash';
 
-const imgUrlBase = "./src/assets/images/";
+const imgUrlBase = './src/assets/images/';
 
 const images = [
-  { name: "sleepy-cats.jpg", desc: "sleepy cats on blanket" },
-  { name: "dog-beside-motorcycle.jpg", desc: "dog beside motorcycle" },
-  { name: "street-scene.jpg", desc: "people walking on street with vehicles in background" },
-  { name: "people-walking.jpg", desc: "people walking" },
-  { name: "moped-gang.jpg", desc: "gang of people on mopeds" },
-  { name: "boat.jpg", desc: "boat in venice canal" },
+  { name: 'sleepy-cats.jpg', desc: 'sleepy cats on blanket' },
+  { name: 'dog-beside-motorcycle.jpg', desc: 'dog beside motorcycle' },
+  { name: 'street-scene.jpg', desc: 'people walking on street with vehicles in background' },
+  { name: 'people-walking.jpg', desc: 'people walking' },
+  { name: 'moped-gang.jpg', desc: 'gang of people on mopeds' },
+  { name: 'boat.jpg', desc: 'boat in venice canal' },
 ];
 
 const imgIdx = 1;
@@ -31,7 +31,7 @@ function App() {
 
       const detections = await model.detect(img);
 
-      console.log("Predictions", detections);
+      console.log('Predictions', detections);
       setPredictions(detections.map((detected) => ({ ...detected, id: crypto.randomUUID() })));
     }
 
@@ -40,21 +40,20 @@ function App() {
 
   return (
     <>
-    <div className="showcase">
-      <div className="image-wrap">
-       <img ref={imgRef} src={`${imgUrlBase}${images[imgIdx].name}`} alt={images[imgIdx].desc}></img>
-       {predictions.map((prediction) => (
-        <Annotation desc={prediction.class} bbox={prediction.bbox} confidence={prediction.score}/>
-       ))}
+      <Dash />
+      <div className="showcase">
+        <div className="image-wrap">
+          <img ref={imgRef} src={`${imgUrlBase}${images[imgIdx].name}`} alt={images[imgIdx].desc}></img>
+          {predictions.map((prediction) => (
+            <Annotation desc={prediction.class} bbox={prediction.bbox} confidence={prediction.score} />
+          ))}
+        </div>
       </div>
-    </div>
-    <Dash />
     </>
   );
 }
 
 export default App;
-
 
 /* TODO: 
 
@@ -70,4 +69,3 @@ https://ai.google.dev/edge/mediapipe/solutions/setup_web
 https://www.pexels.com/api/documentation/#authorization
 
 */
-
