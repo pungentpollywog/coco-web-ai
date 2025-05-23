@@ -45,7 +45,7 @@ function App() {
         <div className="image-wrap">
           <img ref={imgRef} src={`${imgUrlBase}${images[imgIdx].name}`} alt={images[imgIdx].desc}></img>
           {predictions.map((prediction) => (
-            <Annotation desc={prediction.class} bbox={prediction.bbox} confidence={prediction.score} />
+            <Annotation key={prediction.id} desc={prediction.class} bbox={prediction.bbox} confidence={prediction.score} />
           ))}
         </div>
       </div>
