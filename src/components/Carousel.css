@@ -1,0 +1,25 @@
+
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  max-width: calc(100vw - 4rem);
+  margin: 0 2rem;
+  gap: 1rem;
+
+  .item {
+    position: relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-width: calc((100vw - 6rem) / 3);
+    border-radius: 5px;
+  }
+}
+
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}

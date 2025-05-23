@@ -5,6 +5,7 @@ import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Annotation from "./components/Annotation";
+import Dash from "./components/Dash";
 
 const imgUrlBase = "./src/assets/images/";
 
@@ -38,6 +39,7 @@ function App() {
   }, []);
 
   return (
+    <>
     <div className="showcase">
       <div className="image-wrap">
        <img ref={imgRef} src={`${imgUrlBase}${images[imgIdx].name}`} alt={images[imgIdx].desc}></img>
@@ -46,6 +48,8 @@ function App() {
        ))}
       </div>
     </div>
+    <Dash />
+    </>
   );
 }
 
