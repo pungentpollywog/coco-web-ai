@@ -4,6 +4,6 @@
     margin: 1rem 2rem;
     width: calc(100vw - 6rem);
     border: none;
-    background-color: darkturquoise;
+    background-color: var(--highlighter);
     font-size: 1.1rem;
 }

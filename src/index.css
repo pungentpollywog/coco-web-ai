@@ -1,3 +1,7 @@
+:root {
+  --highlighter: lch(87.94% 98.45 120.2 / 0.852);
+}
+
 body {
   margin: 0;
 }

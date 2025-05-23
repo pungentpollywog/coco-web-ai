@@ -1,7 +1,9 @@
+
+
 .annotation {
   div {
     position: absolute;
-    border: 2px yellow solid;
+    border: 2px var(--highlighter) solid;
     display: flex;
     flex-direction: column-reverse;
   }
@@ -11,7 +13,7 @@
     margin: 0;
     padding: 0 1rem;
     background: linear-gradient(180deg, lch(0 0 0 / 50%), transparent);
-    color: lch(from yellow calc(l - 10) c h);
+    color: lch(from var(--highlighter) calc(l - 10) c h);
     text-align: center;
     text-transform: capitalize;
     border: none;
