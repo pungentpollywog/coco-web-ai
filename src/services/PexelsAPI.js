@@ -1,5 +1,6 @@
 import { createClient } from 'pexels';
 
+// @ts-ignore
 const client = createClient(import.meta.env.VITE_PEXELS_API_KEY);
 
 // const protocol = 'https';

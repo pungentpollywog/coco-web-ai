@@ -11,24 +11,27 @@ export default function ObjectDetector({ image }) {
   const imgRef = useRef(null);
   const [predictions, setPredictions] = useState([]);
 
-    const throttledResize = useThrottle(handleResize, 2000);
+  console.log({ image });
 
-    function handleResize() {
-      console.log('handle resize');
-      evaluateImage();
-    }
+  const throttledResize = useThrottle(handleResize, 2000);
 
-    async function evaluateImage() {
-      const img = imgRef.current;
-      const model = await cocoSsd.load();
-      const detections = await model.detect(img);
-      console.log('Predictions', detections);
-      setPredictions(detections.map((detected) => ({ ...detected, id: crypto.randomUUID() })));
-    }
+  function handleResize() {
+    setPredictions([]);
+    evaluateImage();
+  }
+
+  async function evaluateImage() {
+    const img = imgRef.current;
+    const model = await cocoSsd.load();
+    img.crossOrigin = 'anonymous';
+    const detections = await model.detect(img);
+    console.log('Predictions', detections);
+    setPredictions(detections.map((detected) => ({ ...detected, id: crypto.randomUUID() })));
+  }
 
   useEffect(() => {
-    evaluateImage();
-  }, []);
+    setPredictions([]);
+  }, [image]);
 
   useEffect(() => {
     window.addEventListener('resize', throttledResize);
@@ -38,7 +41,7 @@ export default function ObjectDetector({ image }) {
   return (
     <div className="showcase">
       <div className="image-wrap">
-        <img ref={imgRef} src={image.src.original} alt={image.alt}></img>
+        <img ref={imgRef} src={image.src?.original} alt={image.alt} onLoad={evaluateImage}></img>
         {predictions.map((prediction) => (
           <Annotation
             key={prediction.id}

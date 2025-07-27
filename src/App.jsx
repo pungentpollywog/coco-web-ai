@@ -2,10 +2,8 @@
 import './App.css';
 
 import Dash from './components/Dash';
-import ObjectDetector from './components/ObjectDetector';
 
-const imgUrlBase = '../src/assets/images/';
-
+// const imgUrlBase = '../src/assets/images/';
 // const images = [
 //   { name: 'sleepy-cats.jpg', desc: 'sleepy cats on blanket' },
 //   { name: 'dog-beside-motorcycle.jpg', desc: 'dog beside motorcycle' },
@@ -14,18 +12,12 @@ const imgUrlBase = '../src/assets/images/';
 //   { name: 'moped-gang.jpg', desc: 'gang of people on mopeds' },
 //   { name: 'boat.jpg', desc: 'boat in venice canal' },
 // ];
-
-const defaultImage = {src: {original: `${imgUrlBase}dog-beside-motorcycle.jpg`}, alt: 'dog beside motorcycle'}
-
 // const imgIdx = 1;
 
 function App() {
  
   return (
-    <>
       <Dash />
-      <ObjectDetector image={defaultImage} />
-    </>
   );
 }
 
