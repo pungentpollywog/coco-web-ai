@@ -6,8 +6,11 @@ export default function Carousel({ photos }) {
   return (
     <div className="carousel">
       {photos?.map((photo) => (
-        <img className="item" src={photo.src.original} alt={photo.alt} key={photo.id} />
+        <img className="item" src={photo.src.tiny} alt={photo.alt} key={photo.id} />
       ))}
+      {photos.length || (
+        <p>Enter some search terms. 👆</p>
+      )}
     </div>
   );
 }

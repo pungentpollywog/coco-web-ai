@@ -1,6 +1,8 @@
 import './Search.css';
 
 export default function Search({ query, updateQuery }) {
+
+  // TODO: debounce typing
   function update(ev) {
     updateQuery(ev.target.value);
   }

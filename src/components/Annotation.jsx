@@ -6,7 +6,7 @@ export default function Annotation({ desc, bbox, confidence }) {
   console.log('Annotation:', desc, topLeftX, topLeftY, width, height);
   return (
     <div className="annotation">
-      <div style={{ left: topLeftX, top: topLeftY, width: width, height: height }}>
+      <div style={{ left: topLeftX, top: topLeftY, width, height }}>
         <div className="label">
           {desc} {confidencePct}
         </div>
