@@ -1,9 +1,12 @@
-.search input {
+.search {
+  display: flex;
+  input {
     border-radius: 25px;
     padding: 1rem;
-    margin: 1rem 2rem;
-    width: calc(100vw - 6rem);
+    margin: 1rem;
     border: none;
     background-color: var(--highlighter);
     font-size: 1.1rem;
+    flex: 1 1 auto;
+  }
 }
