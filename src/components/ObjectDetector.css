@@ -1,0 +1,9 @@
+.showcase {
+  display: flex;
+  justify-content: center;
+
+
+  .image-wrap {
+    max-width: 50vw;
+  }
+}

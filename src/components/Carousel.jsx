@@ -20,7 +20,7 @@ export default function Carousel({ photos, selectedImage, setSelectedImage }) {
           onClick={() => select(photo)}
         />
       ))}
-      {photos.length || <p>Enter some search terms. 👆</p>}
+      {!!(photos.length) || <p>Enter some search terms. 👆</p>}
     </div>
   );
 }
